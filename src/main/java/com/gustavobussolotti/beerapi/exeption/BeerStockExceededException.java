@@ -9,4 +9,8 @@ public class BeerStockExceededException extends Exception {
     public BeerStockExceededException(Long id, int quantityToIncrement) {
         super(String.format("Beers with %s ID to increment informed exceeds the max stock capacity: %s", id, quantityToIncrement));
     }
+
+    public BeerStockExceededException(Long id) {
+        super(String.format("Stock of beer with %s ID is less than zero", id));
+    }
 }

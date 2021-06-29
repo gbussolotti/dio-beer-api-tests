@@ -37,7 +37,7 @@ class BeerControllerTest {
     private static final long VALID_BEER_ID = 1L;
     private static final long INVALID_BEER_ID = 2l;
     private static final String BEER_API_SUBPATH_INCREMENT_URL = "/increment";
-    //private static final String BEER_API_SUBPATH_DECREMENT_URL = "/decrement";
+    private static final String BEER_API_SUBPATH_DECREMENT_URL = "/decrement";
 
     private MockMvc mockMvc;
 
@@ -228,7 +228,7 @@ class BeerControllerTest {
                 .andExpect(status().isNotFound());
     }
 //
-    /*
+
     @Test
     void whenPATCHIsCalledToDecrementDiscountThenOKstatusIsReturned() throws Exception {
         QuantityDTO quantityDTO = QuantityDTO.builder()
@@ -262,7 +262,8 @@ class BeerControllerTest {
 
         mockMvc.perform(patch(BEER_API_URL_PATH + "/" + VALID_BEER_ID + BEER_API_SUBPATH_DECREMENT_URL)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(asJsonString(quantityDTO))).andExpect(status().isBadRequest());
+                .content(asJsonString(quantityDTO)))
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -278,5 +279,5 @@ class BeerControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-     */
+
 }
